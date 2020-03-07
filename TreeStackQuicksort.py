@@ -11,12 +11,15 @@ class Tree(object):
 
 	def __init__(self):
 		self.root = None
-		self.preStack = Stack()
-		self.inStack = Stack()
-		self.postStack = Stack()
+		self.Stack = Stack()
 
-	def printMe(self):
-		self.preorder(self.root, [])
+	def printMe(self, Choice):
+                if Choice == 'preorder':
+		    self.preorder(self.root, [])
+                elif Choice == 'inorder':
+                    self.inorder(self.root, [])
+                elif Choice == 'postorder':
+                    self.postorder(self.root, [])
 		temp = []
 		for x in self.preStack.data:
 			 temp.append(x)
@@ -33,15 +36,15 @@ class Tree(object):
 	def inorder(self, start, traversal):
 		if start:
 			traversal.append(self.preorder(start.left, traversal))
-			traversal.append(start.value)
-			traversal.append(self.preorder(start.right, traversal))
+			traversal = (start.value)
+			traversal = (self.preorder(start.right, traversal))
 		return traversal
 
 	def postorder(self, start, traversal):
 		if start:
 			traversal.append(self.preorder(start.left, traversal))
-			traversal.append(self.preorder(start.right, traversal))
-			traversal.append(start.value)
+			traversal = (self.preorder(start.right, traversal))
+			traversal = (start.value)
 		return traversal
 
 	def insert(self, data):
@@ -111,6 +114,6 @@ sortedTree = Tree()
 
 for x in (quicksort(newTree.printMe())):
 	sortedTree.insert(x)
-
-print(sortedTree.printMe())
+Choice = input('preorder, inorder or postorder: '
+print(sortedTree.printMe(Choice))
 	
