@@ -1,1 +1,4 @@
-Pointless applciation to sort a tree by first pushing it to a stack and then implementing quicksort on that stack.
+# Pointless-Tree-Stack
+
+⋅⋅* Push the tree into a Stack
+⋅⋅* Implementing Quick Sort onto that Stack
